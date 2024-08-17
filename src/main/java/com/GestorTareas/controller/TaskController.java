@@ -5,6 +5,8 @@ import com.GestorTareas.services.interfaces.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api-task")
 
@@ -15,6 +17,9 @@ public class TaskController {
     @PostMapping("/create-task")
     public Task createTask(@RequestBody Task task){
         return taskService.save(task);
-
+    }
+    @GetMapping("/find-all")
+   public Iterable<Task> getAll(){
+        return taskService.findAll();
     }
 }
