@@ -1,28 +1,40 @@
-package com.GestorTareas.model.entities;
+package com.GestorTareas.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Task {
+@Entity(name = "Tasks")
 
+public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String description;
-    private LocalDate dateCreation;
-    private LocalTime currentlyCreation;
+    private Date dateCreation;
+    private Time currentlyCreation;
     private String status;
 
     public Task() {
     }
 
-    public Task(long id, String title, String description, LocalDate dateCreation, LocalTime currentlyCreation, String status) {
+    public Task(long id, String title, String description, Date dateCreation, Time currentlyCreation, String status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.dateCreation = dateCreation;
         this.currentlyCreation = currentlyCreation;
         this.status = status;
+    }
+
+    public Task(int id, String ingles, String description, String s, String time, String pendiente) {
     }
 
     public long getId() {
@@ -37,11 +49,11 @@ public class Task {
         return description;
     }
 
-    public LocalDate getDateCreation() {
+    public Date getDateCreation() {
         return dateCreation;
     }
 
-    public LocalTime getCurrentlyCreation() {
+    public Time getCurrentlyCreation() {
         return currentlyCreation;
     }
 
@@ -61,11 +73,11 @@ public class Task {
         this.description = description;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public void setCurrentlyCreation(LocalTime currentlyCreation) {
+    public void setCurrentlyCreation(Time currentlyCreation) {
         this.currentlyCreation = currentlyCreation;
     }
 
