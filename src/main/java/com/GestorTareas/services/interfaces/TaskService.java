@@ -52,8 +52,8 @@ public class TaskService implements TaskRepository  {
     }
 
     @Override
-    public void deleteById(Long aLong) {
-
+    public void deleteById(Long id) {
+        taskRepository.deleteById(id);
     }
 
     @Override

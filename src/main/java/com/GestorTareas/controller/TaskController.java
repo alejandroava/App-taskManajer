@@ -22,4 +22,9 @@ public class TaskController {
    public Iterable<Task> getAll(){
         return taskService.findAll();
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id){
+        taskService.deleteById(id);
+    }
 }
